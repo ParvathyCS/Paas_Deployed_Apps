@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>QMUL ECS781P - 2017</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    {{ js_resources|indent(4)|safe }}
+
+    {{ css_resources|indent(4)|safe }}
+
+    {{ plot_script|indent(4)|safe }}
+</head>
+
+
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Apps-to-try</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">{% for item in nav.top %}
+<li class="{{'active' if item.is_active else ''}}">
+<a href="{{ item.url }}">{{ item.label }}</a>
+</li>
+{% endfor %}</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">{% for item in nav.top %}
+<li class="{{'active' if item.is_active else ''}}">
+<a href="{{ item.url }}">{{ item.label }}</a>
+</li>
+{% endfor %}</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">{% block title %}{% endblock %}</h1>
+      <div class="row center">
+              <!-- A simple form for changing the graph -->
+    <p> Select your settings: </p>
+    <form name="color_button" method='GET'>
+        Color (Choose from the options Red, Green, Blue, Black):
+        <input type="text" name="color" value="{{ color }}">
+        <br>
+        <select name="color">
+            <option {{ "selected" if color|indent(4)|safe == "Red" }} value="Red">Red</option>
+            <option {{ "selected" if color|indent(4)|safe == "Green" }} value="Green">Green</option>
+            <option {{ "selected" if color|indent(4)|safe == "Blue" }} value="Blue">Blue</option>
+            <option {{ "selected" if color|indent(4)|safe == "Black" }} value="Black">Black</option>
+        </select>
+        <br>
+        From (Enter integers making sure 'From' value less than 'To' value):
+        <input type="text" name="_from" value="{{ _from }}">
+        <br>
+        To (Enter an integer greater than 'From' Value):
+        <input type="text" name="to" value="{{ to }}">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    {{ plot_div|indent(4)|safe }}
+    <p> Demonstrates some very simple embedding of a polynomial (similar to quadratic) chart into a webpage</p>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About me</h5>
+          <p class="grey-text text-lighten-4">I am Parvathy.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Source Code</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/ParvathyCS/Paas_Deployed_Apps">View in github</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact</h5>
+          <ul>
+            <li><a class="white-text" href="mailto:ec16022@qmul.ac.uk">ec16022 [at] qmul [dot] ac [dot] uk</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made as <a class="white-text text-lighten-3" href="http://materializecss.com">a part of Cloud Computing Module</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/static/js/materialize.js"></script>
+  <script src="/static/js/init.js"></script>
+
+  </body>
+</html>
